@@ -1,60 +1,28 @@
-// const chalk = require('chalk');
-// const log = console.log;
+const todos = [
+{ name: 'task1', key: 1},
+{ name: 'task2', key: 2},
+{ name: 'task3', key: 3},
+{ name: 'task4', key: 4},
+{ name: 'task5', key: 5},
+{ name: 'task6', key: 6},
+{ name: 'task7', key: 7},
+];
+const parent = document.querySelector("body > div > div:nth-child(4) > ul");
+parent.innerHTML = '';
+for (let i = 0; i < todos.length; i++) {
+let todo = todos[i];
+parent.innerHTML += `<li data-id="${todo.id}">
+${todo.name}
+</li>`;
+}
+const slid_bar = document.querySelector("#js-bar");
+slid_bar.style.background = 'Cyan';
 
 
-let firstName = 'Igor';
-let lastName = '   Maslakov   ';
- 
-// charAt(index)
-// const symb = firstName.charAt(0);
-// console.log('Char at 0:', symb);
-// concat
-// const fullName = firstName.concat(' ', lastName);
-// console.log(fullName)
-const fullNamePlus = firstName + ' ' + lastName;
-// console.log('+: ', fullNamePlus);
-const fullNameTemplate = `${firstName} ${lastName}`;
-// console.log('fullNameTemplate: ', fullNameTemplate);
-
-const data = [];
-data.push(firstName);
-data.push('maslakoff');
-data.push(lastName);
-
-
-// log(chalk.blue('data:'), data)
-
-const result = data
-.filter(elememt => typeof elememt === 'string')
-.map(item => item.trim())
-.join(' ');
-console.log('Parcel is awesome!')
-
-// const filteredData = data
-// .filter(elememt => typeof elememt === 'string');
-
-// const trimmedData = filteredData.map(item => item.trim());
-
-// const finalResult = trimmedData.join(' ');
-
-// console.log(chalk.red('string data:'), result)
-// indexOf
-// includes (es6)
-// replace
-// toUpperCase
-// console.log('Upper:', firstName.toUpperCase());
-// toLowerCase, 
-// console.log('Lower:', lastName.toLowerCase());
-// trim, 
-// console.log('trim:', lastName.trim());
-// split, 
-// const bill = '10$ 20$ 55$';
-// const billsArray = bill.split('$ ');
-// console.log('billsArray: ', billsArray)
-// lastIndexOf, 
-// slice, 
-// substring(start, end), 
-// substr(start, length), 
-// startsWith (es6), 
-// endsWith (es6), 
-// repeat (es6), 
+const span = document.querySelector("span");
+// меняем его HTML, todos.length = кол во элементов в массиве
+span.innerHTML = `${todos.length} items left`;
+for (let i = 0; i < todos.length; i++) {
+let text_li = document.querySelector("div.row:nth-child(4) > ul:nth-child(1) > li:nth-child(i)");
+text_li.style.color = "green";
+}
